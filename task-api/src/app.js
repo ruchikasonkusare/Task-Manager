@@ -1,5 +1,7 @@
 const express=require('express');
 const cors=require('cors');
+const errorHandler=require('./middleware/errorHandler');
+
 
 require('dotenv').config();
 
@@ -17,6 +19,7 @@ app.use((req,res)=>{
     res.status(404).json({error:"Route not found"});
 });
 
+app.use(errorHandler);
 module.exports=app;
 
 
